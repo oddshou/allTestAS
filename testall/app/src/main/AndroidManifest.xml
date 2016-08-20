@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.oddshou.testall"
     android:versionCode="1"
-    android:versionName="1.0" >
+    android:versionName="1.0">
 
     <uses-sdk
         android:minSdkVersion="14"
@@ -13,16 +13,22 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.BROADCAST_STICKY" />
     <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <android:uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <android:uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
         android:hardwareAccelerated="false"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme">
         <activity
             android:name=".OddsDemos"
-            android:label="@string/title_activity_odds_demos" >
+            android:label="@string/title_activity_odds_demos">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -32,7 +38,7 @@
         </activity>
         <activity
             android:name=".download.DownloadManagerDemo"
-            android:label="@string/activity_download__demo" >
+            android:label="@string/activity_download__demo">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -41,7 +47,7 @@
         </activity>
         <activity
             android:name=".view.WaveViewActivity"
-            android:label="@string/activity_wave_view" >
+            android:label="@string/activity_wave_view">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -50,7 +56,7 @@
         </activity>
         <activity
             android:name=".activity.LaunchModeActivity"
-            android:label="@string/activity_launch_mode" >
+            android:label="@string/activity_launch_mode">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -58,8 +64,8 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.oddshou.testall.apkinstall.InstallFromAssets"
-            android:label="@string/title_activity_install_from_assets" >
+            android:name=".apkinstall.InstallFromAssets"
+            android:label="@string/title_activity_install_from_assets">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -69,19 +75,34 @@
         <activity
             android:name=".activity.OneActivity"
             android:label="@string/title_activity_one"
-            android:launchMode="singleTask" >
-        </activity>
+            android:launchMode="singleTask" />
         <activity
             android:name=".activity.TwoActivity"
-            android:label="@string/title_activity_two" >
-        </activity>
+            android:label="@string/title_activity_two" />
         <activity
             android:name=".scroll.ScrollActivity"
-            android:label="@string/title_activity_scroll" >
-        </activity>
+            android:label="@string/title_activity_scroll" />
         <activity
-            android:name="com.oddshou.testall.scroll.TabIterceptActivity"
-            android:label="@string/title_activity_tab_itercept" >
+            android:name=".scroll.TabIterceptActivity"
+            android:label="@string/title_activity_tab_itercept">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="com.oddshou.testall.category.example" />
+            </intent-filter>
+        </activity>
+
+        <receiver android:name=".receiver.NetworkReceiver">
+            <intent-filter android:priority="0x7fffffff">
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                <action android:name="android.net.wifi.WIFI_STATE_CHANGED" />
+                <action android:name="android.net.wifi.STATE_CHANGE" />
+                <action android:name="android.net.wifi.supplicant.CONNECTION_CHANGE"/>
+            </intent-filter>
+        </receiver>
+
+        <activity android:name=".activity.NetwrokLogActivity"
+            android:label="@string/title_activity_networklogactivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

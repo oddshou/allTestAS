@@ -18,5 +18,6 @@
     <string name="title_activity_odds_demos">OddsDemos</string>
     <string name="title_activity_install_from_assets">Files/InstallApk/InstallFromAssets</string>
     <string name="title_activity_tab_itercept">TabIterceptActivity</string>
+    <string name="title_activity_networklogactivity">Log/Networklog</string>
 
 </resources>
