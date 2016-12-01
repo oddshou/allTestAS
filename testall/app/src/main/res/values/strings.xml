@@ -19,5 +19,12 @@
     <string name="title_activity_install_from_assets">Files/InstallApk/InstallFromAssets</string>
     <string name="title_activity_tab_itercept">TabIterceptActivity</string>
     <string name="title_activity_networklogactivity">Log/Networklog</string>
+    <string name="title_activity_view_test">Activity/ViewTest</string>
+    <string name="title_activity_drawable_test">Activity/DrawableTest</string>
+    <string name="title_activity_manager_apk">Activity/ManagerActivity</string>
 
+
+
+    //user string
+    <string name="menu_manager">Change</string>
 </resources>

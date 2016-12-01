@@ -154,7 +154,7 @@ public class NetworkReceiver extends BroadcastReceiver {
                     //EXTRA_NETWORK_INFO [type: WIFI[], state: CONNECTED/CONNECTED, reason: (unspecified), extra: "SGV-test", roaming: false, failover: false, isAvailable: true, isConnectedToProvisioningNetwork: false] ---EXTRA_BSSID 0e:69:6c:0c:58:d3 ---EXTRA_WIFI_INFO SSID: SGV-test, BSSID: 0e:69:6c:0c:58:d3, MAC: 10:2a:b3:2f:fd:0f, Supplicant state: COMPLETED, RSSI: -43, Link speed: 54Mbps, Frequency: 5765MHz, Net ID: 9, Metered hint: false, score: 60
 
                 } else {
-
+                    Logger.e(TAG, "onReceive: connected false ", "oddshou");
                 }
             }
         }

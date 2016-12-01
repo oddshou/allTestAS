@@ -10,5 +10,9 @@
 
     <color name="divider_color">#D8D8D8</color>
     
-    	<color name="water_normal">#59bf44</color>
+    <color name="water_normal">#59bf44</color>
+
+    <color name="transparent">#00000000</color>
+    <color name="color_first_normal">#fcc41b</color>
+
 </resources>
