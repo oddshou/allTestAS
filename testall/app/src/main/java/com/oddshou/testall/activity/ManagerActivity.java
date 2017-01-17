@@ -1,5 +1,6 @@
 package com.oddshou.testall.activity;
 
+import android.app.DialogFragment;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
@@ -51,6 +52,8 @@ public class ManagerActivity extends AppCompatActivity {
         mMyAdapter = new MyAdapter();
         mRecyclerView.setAdapter(mMyAdapter);
 
+        DialogFragment dialogFragment = new DialogFragment();
+
     }
 
     @Override
@@ -60,10 +63,15 @@ public class ManagerActivity extends AppCompatActivity {
         return super.onCreateOptionsMenu(menu);
     }
 
+
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.settings:
+
+
+
                 return true;
             case R.id.settings1:
                 mCheckStat = !mCheckStat;

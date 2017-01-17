@@ -22,7 +22,7 @@
     <string name="title_activity_view_test">Activity/ViewTest</string>
     <string name="title_activity_drawable_test">Activity/DrawableTest</string>
     <string name="title_activity_manager_apk">Activity/ManagerActivity</string>
-
+    <string name="title_activity_main2">Activity/Main2Activity</string>
 
 
     //user string
