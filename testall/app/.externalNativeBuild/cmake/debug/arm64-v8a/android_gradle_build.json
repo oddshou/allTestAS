@@ -1,0 +1,56 @@
+
+{
+	"buildFiles" : [ "F:/githubreposity/allTestAS/testall/app/CMakeLists.txt" ],
+	"cFileExtensions" : [ "c" ],
+	"cleanCommands" : 
+	[
+		"D:\\android-sdk-windows\\cmake\\3.6.3155560\\bin\\cmake.exe --build F:\\githubreposity\\allTestAS\\testall\\app\\.externalNativeBuild\\cmake\\debug\\arm64-v8a --target clean"
+	],
+	"libraries" : 
+	{
+		"app-glue-Debug-arm64-v8a" : 
+		{
+			"abi" : "arm64-v8a",
+			"artifactName" : "app-glue",
+			"buildCommand" : "D:\\android-sdk-windows\\cmake\\3.6.3155560\\bin\\cmake.exe --build F:\\githubreposity\\allTestAS\\testall\\app\\.externalNativeBuild\\cmake\\debug\\arm64-v8a --target app-glue",
+			"buildType" : "debug",
+			"files" : 
+			[
+				
+				{
+					"flags" : "  --target=aarch64-none-linux-android --gcc-toolchain=D:/android-sdk-windows/ndk-bundle/toolchains/aarch64-linux-android-4.9/prebuilt/windows-x86_64 --sysroot=D:/android-sdk-windows/ndk-bundle/platforms/android-21/arch-arm64   -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -Wa,--noexecstack -Wformat -Werror=format-security -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -Wa,--noexecstack -Wformat -Werror=format-security  -O0 -fno-limit-debug-info -O0 -fno-limit-debug-info  -fPIC      -c ",
+					"src" : "D:/android-sdk-windows/ndk-bundle/sources/android/native_app_glue/android_native_app_glue.c",
+					"workingDirectory" : "F:/githubreposity/allTestAS/testall/app/.externalNativeBuild/cmake/debug/arm64-v8a"
+				}
+			],
+			"output" : "F:/githubreposity/allTestAS/testall/app/.externalNativeBuild/cmake/debug/arm64-v8a/libapp-glue.a",
+			"toolchain" : "1131277293"
+		},
+		"native-lib-Debug-arm64-v8a" : 
+		{
+			"abi" : "arm64-v8a",
+			"artifactName" : "native-lib",
+			"buildCommand" : "D:\\android-sdk-windows\\cmake\\3.6.3155560\\bin\\cmake.exe --build F:\\githubreposity\\allTestAS\\testall\\app\\.externalNativeBuild\\cmake\\debug\\arm64-v8a --target native-lib",
+			"buildType" : "debug",
+			"files" : 
+			[
+				
+				{
+					"flags" : "  --target=aarch64-none-linux-android --gcc-toolchain=D:/android-sdk-windows/ndk-bundle/toolchains/aarch64-linux-android-4.9/prebuilt/windows-x86_64 --sysroot=D:/android-sdk-windows/ndk-bundle/platforms/android-21/arch-arm64 -Dnative_lib_EXPORTS  -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -Wa,--noexecstack -Wformat -Werror=format-security -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -Wa,--noexecstack -Wformat -Werror=format-security  -O0 -fno-limit-debug-info -O0 -fno-limit-debug-info  -fPIC      -c ",
+					"src" : "F:/githubreposity/allTestAS/testall/app/src/main/jni/jnitest.c",
+					"workingDirectory" : "F:/githubreposity/allTestAS/testall/app/.externalNativeBuild/cmake/debug/arm64-v8a"
+				}
+			],
+			"output" : "F:/githubreposity/allTestAS/testall/app/build/intermediates/cmake/debug/obj/arm64-v8a/libnative-lib.so",
+			"toolchain" : "1131277293"
+		}
+	},
+	"toolchains" : 
+	{
+		"1131277293" : 
+		{
+			"cCompilerExecutable" : "D:/android-sdk-windows/ndk-bundle/toolchains/llvm/prebuilt/windows-x86_64/bin/clang.exe",
+			"cppCompilerExecutable" : "D:/android-sdk-windows/ndk-bundle/toolchains/llvm/prebuilt/windows-x86_64/bin/clang++.exe"
+		}
+	}
+}

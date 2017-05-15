@@ -1,0 +1,4 @@
+F:/githubreposity/allTestAS/testall/app/.externalNativeBuild/cmake/release/mips/CMakeFiles/native-lib.dir
+F:/githubreposity/allTestAS/testall/app/.externalNativeBuild/cmake/release/mips/CMakeFiles/app-glue.dir
+F:/githubreposity/allTestAS/testall/app/.externalNativeBuild/cmake/release/mips/CMakeFiles/edit_cache.dir
+F:/githubreposity/allTestAS/testall/app/.externalNativeBuild/cmake/release/mips/CMakeFiles/rebuild_cache.dir

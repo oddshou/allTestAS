@@ -64,7 +64,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.LaunchModeActivity"
+            android:name=".launchmode.LaunchModeActivity"
             android:label="@string/activity_launch_mode">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -82,12 +82,25 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.OneActivity"
-            android:label="@string/title_activity_one"
-            android:launchMode="singleTask" />
+            android:name=".launchmode.SingleTaskActivity"
+            android:label="@string/title_activity_single_task"
+            android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="com.oddshou.testall.category.example" />
+            </intent-filter>
+        </activity>
         <activity
-            android:name=".activity.TwoActivity"
-            android:label="@string/title_activity_two" />
+            android:name=".launchmode.SingleInstanceActivity"
+            android:label="@string/title_activity_single_instance"
+            android:launchMode="singleInstance">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="com.oddshou.testall.category.example" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".scroll.ScrollActivity"
             android:label="@string/title_activity_scroll" />
@@ -146,14 +159,35 @@
                 <category android:name="com.oddshou.testall.category.example" />
             </intent-filter>
         </activity>
-<!--        <activity android:name=".activity.WifiActivity">
-            <intent-filter>
+
+        <activity android:name=".activity.JniActivity"
+            android:icon="@drawable/icon"
+            android:label="@string/title_activity_jni">
+<!--            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            </intent-filter>-->
 
-        </activity>-->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="com.oddshou.testall.category.example" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activity.FragmentRetainInstance"
+            android:label="@string/title_activity_nouifragment"
+            >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="com.oddshou.testall.category.example" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

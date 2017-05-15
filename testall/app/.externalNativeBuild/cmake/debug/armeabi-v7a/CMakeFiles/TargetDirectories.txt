@@ -1,0 +1,4 @@
+F:/githubreposity/allTestAS/testall/app/.externalNativeBuild/cmake/debug/armeabi-v7a/CMakeFiles/native-lib.dir
+F:/githubreposity/allTestAS/testall/app/.externalNativeBuild/cmake/debug/armeabi-v7a/CMakeFiles/app-glue.dir
+F:/githubreposity/allTestAS/testall/app/.externalNativeBuild/cmake/debug/armeabi-v7a/CMakeFiles/edit_cache.dir
+F:/githubreposity/allTestAS/testall/app/.externalNativeBuild/cmake/debug/armeabi-v7a/CMakeFiles/rebuild_cache.dir

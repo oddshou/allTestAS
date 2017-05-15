@@ -1,0 +1,56 @@
+
+{
+	"buildFiles" : [ "F:/githubreposity/allTestAS/testall/app/CMakeLists.txt" ],
+	"cFileExtensions" : [ "c" ],
+	"cleanCommands" : 
+	[
+		"D:\\android-sdk-windows\\cmake\\3.6.3155560\\bin\\cmake.exe --build F:\\githubreposity\\allTestAS\\testall\\app\\.externalNativeBuild\\cmake\\debug\\mips64 --target clean"
+	],
+	"libraries" : 
+	{
+		"app-glue-Debug-mips64" : 
+		{
+			"abi" : "mips64",
+			"artifactName" : "app-glue",
+			"buildCommand" : "D:\\android-sdk-windows\\cmake\\3.6.3155560\\bin\\cmake.exe --build F:\\githubreposity\\allTestAS\\testall\\app\\.externalNativeBuild\\cmake\\debug\\mips64 --target app-glue",
+			"buildType" : "debug",
+			"files" : 
+			[
+				
+				{
+					"flags" : "  --target=mips64el-none-linux-android --gcc-toolchain=D:/android-sdk-windows/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/windows-x86_64 --sysroot=D:/android-sdk-windows/ndk-bundle/platforms/android-21/arch-mips64   -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -Wa,--noexecstack -Wformat -Werror=format-security -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -Wa,--noexecstack -Wformat -Werror=format-security  -O0 -fno-limit-debug-info -O0 -fno-limit-debug-info  -fPIC      -c ",
+					"src" : "D:/android-sdk-windows/ndk-bundle/sources/android/native_app_glue/android_native_app_glue.c",
+					"workingDirectory" : "F:/githubreposity/allTestAS/testall/app/.externalNativeBuild/cmake/debug/mips64"
+				}
+			],
+			"output" : "F:/githubreposity/allTestAS/testall/app/.externalNativeBuild/cmake/debug/mips64/libapp-glue.a",
+			"toolchain" : "1131277293"
+		},
+		"native-lib-Debug-mips64" : 
+		{
+			"abi" : "mips64",
+			"artifactName" : "native-lib",
+			"buildCommand" : "D:\\android-sdk-windows\\cmake\\3.6.3155560\\bin\\cmake.exe --build F:\\githubreposity\\allTestAS\\testall\\app\\.externalNativeBuild\\cmake\\debug\\mips64 --target native-lib",
+			"buildType" : "debug",
+			"files" : 
+			[
+				
+				{
+					"flags" : "  --target=mips64el-none-linux-android --gcc-toolchain=D:/android-sdk-windows/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/windows-x86_64 --sysroot=D:/android-sdk-windows/ndk-bundle/platforms/android-21/arch-mips64 -Dnative_lib_EXPORTS  -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -Wa,--noexecstack -Wformat -Werror=format-security -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -Wa,--noexecstack -Wformat -Werror=format-security  -O0 -fno-limit-debug-info -O0 -fno-limit-debug-info  -fPIC      -c ",
+					"src" : "F:/githubreposity/allTestAS/testall/app/src/main/jni/jnitest.c",
+					"workingDirectory" : "F:/githubreposity/allTestAS/testall/app/.externalNativeBuild/cmake/debug/mips64"
+				}
+			],
+			"output" : "F:/githubreposity/allTestAS/testall/app/build/intermediates/cmake/debug/obj/mips64/libnative-lib.so",
+			"toolchain" : "1131277293"
+		}
+	},
+	"toolchains" : 
+	{
+		"1131277293" : 
+		{
+			"cCompilerExecutable" : "D:/android-sdk-windows/ndk-bundle/toolchains/llvm/prebuilt/windows-x86_64/bin/clang.exe",
+			"cppCompilerExecutable" : "D:/android-sdk-windows/ndk-bundle/toolchains/llvm/prebuilt/windows-x86_64/bin/clang++.exe"
+		}
+	}
+}

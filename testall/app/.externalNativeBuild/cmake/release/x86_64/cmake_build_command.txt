@@ -1,0 +1,14 @@
+Executable : D:\android-sdk-windows\cmake\3.6.3155560\bin\cmake.exe
+arguments : 
+-HF:\githubreposity\allTestAS\testall\app
+-BF:\githubreposity\allTestAS\testall\app\.externalNativeBuild\cmake\release\x86_64
+-GAndroid Gradle - Ninja
+-DANDROID_ABI=x86_64
+-DANDROID_NDK=D:\android-sdk-windows\ndk-bundle
+-DCMAKE_LIBRARY_OUTPUT_DIRECTORY=F:\githubreposity\allTestAS\testall\app\build\intermediates\cmake\release\obj\x86_64
+-DCMAKE_BUILD_TYPE=Release
+-DCMAKE_MAKE_PROGRAM=D:\android-sdk-windows\cmake\3.6.3155560\bin\ninja.exe
+-DCMAKE_TOOLCHAIN_FILE=D:\android-sdk-windows\ndk-bundle\build\cmake\android.toolchain.cmake
+-DANDROID_PLATFORM=android-21
+jvmArgs : 
+

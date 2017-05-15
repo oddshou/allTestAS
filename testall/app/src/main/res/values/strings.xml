@@ -3,8 +3,8 @@
 
     <string name="app_name">TestAll</string>
     <string name="hello_world">Hello world!</string>
-    <string name="title_activity_one">OneActivity</string>
-    <string name="title_activity_two">TwoActivity</string>
+    <string name="title_activity_single_task">Activity/SingleTaskActivity</string>
+    <string name="title_activity_single_instance">Activity/SingleInstanceActivity</string>
     <string name="title_activity_scroll">ScrollActivity</string>
     <string name="activity_download__demo">Download/DownloadManagerDemo</string>
     <string name="activity_wave_view">View/WaveView</string>
@@ -23,8 +23,12 @@
     <string name="title_activity_drawable_test">Activity/DrawableTest</string>
     <string name="title_activity_manager_apk">Activity/ManagerActivity</string>
     <string name="title_activity_main2">Activity/Main2Activity</string>
-
+    <string name="title_activity_jni">Activity/JniActivity</string>
+    <string name="title_activity_nouifragment">Activity/NoUIFragmentActivity</string>
 
     //user string
+    <string name="restart">Restart</string>
+    <string name="fragment_retain_instance_msg">Current progress of retained fragment;
+    restarts if fragment is re-created.</string>
     <string name="menu_manager">Change</string>
 </resources>
