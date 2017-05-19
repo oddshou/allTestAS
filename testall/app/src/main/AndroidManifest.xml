@@ -12,8 +12,8 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.DELETE_PACKAGES" />
 
-    <android:uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <android:uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:name=".MyApplication"
@@ -186,6 +186,31 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="nfyg.hskj.hsgamesdk.activity.HomePageActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:hardwareAccelerated="true"
+            android:label="@string/hsgame_app_name"
+            android:launchMode="singleTask"
+            android:taskAffinity="nfyg.hskj.hsgamesdk.second"
+            android:screenOrientation="user"
+            android:windowSoftInputMode="adjustPan"
+            android:theme="@style/App_FullScreen_NoActionBar"
+            >
+            <intent-filter>
+                <data
+                    android:host="bizTwo"
+                    android:path="/someWorks"
+                    android:scheme="appName"/>
+                <action android:name="cn.hskj.action.SHORTCUT" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="com.oddshou.testall.category.example" />
             </intent-filter>
         </activity>
     </application>

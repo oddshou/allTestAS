@@ -1,1 +1,1 @@
-include ':app', ':HSGameSDK-release'
+include ':app'

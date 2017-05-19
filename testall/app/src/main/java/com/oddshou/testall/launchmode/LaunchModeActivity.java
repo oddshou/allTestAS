@@ -6,7 +6,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 
+import com.oddshou.testall.Logger;
 import com.oddshou.testall.R;
 
 public class LaunchModeActivity extends Activity {
@@ -16,6 +18,7 @@ public class LaunchModeActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_launchmode);
+        ((TextView)findViewById(R.id.textView1)).setText(TAG);
     }
 
     @Override
@@ -39,5 +42,17 @@ public class LaunchModeActivity extends Activity {
             default:
                 break;
         }
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Logger.i(TAG, "onStop: " + this.getClass().getName(), "oddshou");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Logger.i(TAG, "onDestroy: " + this.getClass().getName(), "oddshou");
     }
 }
