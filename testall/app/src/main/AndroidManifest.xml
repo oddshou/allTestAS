@@ -65,7 +65,8 @@
         </activity>
         <activity
             android:name=".launchmode.LaunchModeActivity"
-            android:label="@string/activity_launch_mode">
+            android:label="@string/activity_launch_mode"
+            android:launchMode="standard">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -188,6 +189,18 @@
                 <category android:name="android.intent.category.SAMPLE_CODE" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".drawable.DrawableMainActivity"
+            android:label="@string/drawable__main">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="com.oddshou.testall.category.example" />
+            </intent-filter>
+        </activity>
+
+
+
 
         <activity
             android:name="nfyg.hskj.hsgamesdk.activity.HomePageActivity"

@@ -29,19 +29,7 @@ public class LaunchModeActivity extends Activity {
     }
 
     public void doClick(View v){
-        switch (Integer.valueOf((String)v.getTag())) {
-            case 10: //back
-                startActivity(new Intent(this, SingleTaskActivity.class));
-                break;
-            case 11:
-                startActivity(new Intent(this, SingleInstanceActivity.class));
-                break;
-            case 12:
-                startActivity(new Intent(this, LaunchModeActivity.class));
-                break;
-            default:
-                break;
-        }
+        IntentTest.doIntent(this, Integer.valueOf((String)v.getTag()));
     }
 
     @Override

@@ -7,3 +7,11 @@
 438	750	0	libapp-glue.a	b489d0a54485406d
 750	828	0	CMakeFiles/native-lib.dir/src/main/jni/jnitest.c.o	5413e1937c31e8a5
 828	1011	0	../../../../build/intermediates/cmake/debug/obj/arm64-v8a/libnative-lib.so	f44c5530422934d0
+96	393	0	CMakeFiles/app-glue.dir/D_/android-sdk-windows/ndk-bundle/sources/android/native_app_glue/android_native_app_glue.c.o	dca4893102d026d5
+394	573	0	libapp-glue.a	b489d0a54485406d
+573	642	0	CMakeFiles/native-lib.dir/src/main/jni/jnitest.c.o	5413e1937c31e8a5
+642	819	0	../../../../build/intermediates/cmake/debug/obj/arm64-v8a/libnative-lib.so	f44c5530422934d0
+78	446	0	CMakeFiles/app-glue.dir/D_/android-sdk-windows/ndk-bundle/sources/android/native_app_glue/android_native_app_glue.c.o	dca4893102d026d5
+446	754	0	libapp-glue.a	b489d0a54485406d
+754	822	0	CMakeFiles/native-lib.dir/src/main/jni/jnitest.c.o	5413e1937c31e8a5
+822	1014	0	../../../../build/intermediates/cmake/debug/obj/arm64-v8a/libnative-lib.so	f44c5530422934d0
