@@ -1,4 +1,4 @@
-package com.oddshou.testall.launchmode;
+package com.oddshou.testall.activity.launchmode;
 
 import android.content.Context;
 import android.content.Intent;
@@ -20,7 +20,7 @@ public class IntentTest {
                 break;
             case 12:
                 Intent intent = new Intent(context, LaunchModeActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 context.startActivity(intent);
                 break;
             default:

@@ -1,5 +1,5 @@
 
-package com.oddshou.testall.launchmode;
+package com.oddshou.testall.activity.launchmode;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -11,8 +11,9 @@ import android.widget.TextView;
 import com.oddshou.testall.Logger;
 import com.oddshou.testall.R;
 
-public class SingleInstanceActivity extends Activity {
-    private static final String TAG = "SingleInstanceActivity";
+public class SingleTaskActivity extends Activity {
+
+    private static final String TAG = "SingleTaskActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,7 +21,7 @@ public class SingleInstanceActivity extends Activity {
         setContentView(R.layout.activity_launchmode);
         ((TextView)findViewById(R.id.textView1)).setText(TAG);
     }
-
+    
     @Override
     protected void onNewIntent(Intent intent) {
         // TODO Auto-generated method stub

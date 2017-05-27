@@ -46,10 +46,11 @@ public class AlphaBitmap extends GraphicsActivity {
             Paint p = new Paint();
             p.setAntiAlias(true);
 
-            p.setAlpha(0x80);
+//            p.setAlpha(0x80);
             c.drawCircle(x/2, y/2, x/2, p);
 
-            p.setAlpha(0x30);
+//            p.setAlpha(0x30);
+//            p.setColor(0xDC143C);
             p.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC));
             p.setTextSize(60);
             p.setTextAlign(Paint.Align.CENTER);
@@ -68,14 +69,18 @@ public class AlphaBitmap extends GraphicsActivity {
             drawIntoBitmap(mBitmap3);
 
             mShader = new LinearGradient(0, 0, 100, 70, new int[] {
-                                         Color.RED, Color.GREEN, Color.BLUE },
+                                         /*Color.RED, */Color.GREEN, Color.BLUE },
                                          null, Shader.TileMode.MIRROR);
+
+            //关闭硬件加速
+            setLayerType(View.LAYER_TYPE_SOFTWARE, null);
         }
 
         @Override protected void onDraw(Canvas canvas) {
             canvas.drawColor(Color.WHITE);
 
             Paint p = new Paint();
+            p.setAntiAlias(true);
             float y = 10;
 
             p.setColor(Color.RED);
@@ -84,6 +89,8 @@ public class AlphaBitmap extends GraphicsActivity {
             canvas.drawBitmap(mBitmap2, 10, y, p);
             y += mBitmap2.getHeight() + 10;
             p.setShader(mShader);
+//            canvas.drawCircle(110, y + 100,100, p);
+//            p.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC));
             canvas.drawBitmap(mBitmap3, 10, y, p);
         }
     }

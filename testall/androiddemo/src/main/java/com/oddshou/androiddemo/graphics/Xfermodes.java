@@ -41,6 +41,7 @@ public class Xfermodes extends GraphicsActivity {
 
         p.setColor(0xFFFFCC44);
         c.drawOval(new RectF(0, 0, w*3/4, h*3/4), p);
+//        c.drawColor(Color.GRAY);
         return bm;
     }
 
@@ -52,6 +53,7 @@ public class Xfermodes extends GraphicsActivity {
 
         p.setColor(0xFF66AAFF);
         c.drawRect(w/3, h/3, w*19/20, h*19/20, p);
+//        c.drawColor(Color.GRAY);
         return bm;
     }
 
@@ -62,8 +64,8 @@ public class Xfermodes extends GraphicsActivity {
     }
 
     private static class SampleView extends View {
-        private static final int W = 64;
-        private static final int H = 64;
+        private static final int W = 90;
+        private static final int H = 90;
         private static final int ROW_MAX = 4;   // number of samples per row
 
         private Bitmap mSrcB;
@@ -112,6 +114,9 @@ public class Xfermodes extends GraphicsActivity {
             Matrix m = new Matrix();
             m.setScale(6, 6);
             mBG.setLocalMatrix(m);
+
+            //关闭硬件加速
+            setLayerType(View.LAYER_TYPE_SOFTWARE, null);
         }
 
         @Override protected void onDraw(Canvas canvas) {

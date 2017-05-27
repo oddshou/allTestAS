@@ -1,5 +1,5 @@
 
-package com.oddshou.testall.launchmode;
+package com.oddshou.testall.activity.launchmode;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -11,8 +11,8 @@ import android.widget.TextView;
 import com.oddshou.testall.Logger;
 import com.oddshou.testall.R;
 
-public class LaunchModeActivity extends Activity {
-    private static final String TAG = "LaunchModeActivity";
+public class SingleInstanceActivity extends Activity {
+    private static final String TAG = "SingleInstanceActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

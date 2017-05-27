@@ -25,6 +25,9 @@
     <string name="title_activity_main2">Activity/Main2Activity</string>
     <string name="title_activity_jni">Activity/JniActivity</string>
     <string name="title_activity_nouifragment">Activity/NoUIFragmentActivity</string>
+    <string name="title_activity_screen">Activity/ScreenActivity</string>
+    <string name="title_activity_xfermodes">graaphics/xfermodes</string>
+
     <string name="drawable__main">drawableMain</string>
 
     //user string

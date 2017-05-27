@@ -58,7 +58,7 @@ public class Clipping extends GraphicsActivity {
             canvas.drawCircle(30, 70, 30, mPaint);
 
             mPaint.setColor(Color.BLUE);
-            canvas.drawText("Clipping", 100, 30, mPaint);
+//            canvas.drawText("Clipping", 100, 30, mPaint);
         }
 
         @Override protected void onDraw(Canvas canvas) {
@@ -72,38 +72,44 @@ public class Clipping extends GraphicsActivity {
             canvas.save();
             canvas.translate(160, 10);
             canvas.clipRect(10, 10, 90, 90);
-            canvas.clipRect(30, 30, 70, 70, Region.Op.DIFFERENCE);
+            canvas.clipRect(30, 30, 70, 70, Region.Op.DIFFERENCE);  //A中不相交的区域
             drawScene(canvas);
+            canvas.drawText("DIFFERENCE", 100, 30, mPaint);
             canvas.restore();
 
             canvas.save();
             canvas.translate(10, 160);
             mPath.reset();
             canvas.clipPath(mPath); // makes the clip empty
-            mPath.addCircle(50, 50, 50, Path.Direction.CCW);
-            canvas.clipPath(mPath, Region.Op.REPLACE);
+            mPath.addCircle(50, 50, 50, Path.Direction.CCW);//逆时针
+            canvas.clipPath(mPath, Region.Op.REPLACE);  //相交区域
             drawScene(canvas);
+            canvas.drawText("CCW", 100, 30, mPaint);
             canvas.restore();
 
             canvas.save();
             canvas.translate(160, 160);
             canvas.clipRect(0, 0, 60, 60);
-            canvas.clipRect(40, 40, 100, 100, Region.Op.UNION);
+            canvas.clipRect(40, 40, 100, 100, Region.Op.UNION); //并集
             drawScene(canvas);
+            canvas.drawText("UNION", 100, 30, mPaint);
             canvas.restore();
 
             canvas.save();
             canvas.translate(10, 310);
             canvas.clipRect(0, 0, 60, 60);
-            canvas.clipRect(40, 40, 100, 100, Region.Op.XOR);
+            canvas.clipRect(40, 40, 100, 100, Region.Op.XOR);//并集除掉共同区域
             drawScene(canvas);
+            canvas.drawText("XOR", 100, 30, mPaint);
             canvas.restore();
 
             canvas.save();
             canvas.translate(160, 310);
             canvas.clipRect(0, 0, 60, 60);
-            canvas.clipRect(40, 40, 100, 100, Region.Op.REVERSE_DIFFERENCE);
+            canvas.clipRect(40, 40, 100, 100, Region.Op.REVERSE_DIFFERENCE);//B中不相交区域
+            //在原canvas上先有A，再画B，那么结果等于B-A∩B
             drawScene(canvas);
+            canvas.drawText("REVERSE_DIFFERENCE", 100, 30, mPaint);
             canvas.restore();
         }
     }
