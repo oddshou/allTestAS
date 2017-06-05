@@ -33,6 +33,10 @@ public class Arcs extends GraphicsActivity {
         setContentView(new SampleView(this));
     }
 
+    /**
+     * 测试canvas drawArc 方法，uscenter表示是否连接圆心，
+     * PaintStyle 默认为fill 实心填充，STROKE 空心只画边框
+     */
     private static class SampleView extends View {
         private Paint[] mPaints;
         private Paint mFramePaint;

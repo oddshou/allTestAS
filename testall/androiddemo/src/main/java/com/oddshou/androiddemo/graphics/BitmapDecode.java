@@ -61,6 +61,10 @@ public class BitmapDecode extends GraphicsActivity {
             return os.toByteArray();
         }
 
+        /**
+         * decode 一个bitmap并进行缩放
+         * @param context
+         */
         public SampleView(Context context) {
             super(context);
             setFocusable(true);
@@ -98,7 +102,7 @@ public class BitmapDecode extends GraphicsActivity {
                                            Bitmap.Config.ARGB_4444);
 
             mDrawable = context.getResources().getDrawable(R.drawable.button);
-            mDrawable.setBounds(150, 20, 300, 100);
+            mDrawable.setBounds(150, 20, 300, 100);//指定绘制区域
 
             is = context.getResources().openRawResource(R.drawable.animated_gif);
 

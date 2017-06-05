@@ -16,8 +16,6 @@
 
 package com.oddshou.androiddemo.graphics;
 
-import com.oddshou.androiddemo.R;
-
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -27,6 +25,8 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 
+import com.oddshou.androiddemo.R;
+
 public class AnimateDrawables extends GraphicsActivity {
 
     @Override
@@ -35,6 +35,9 @@ public class AnimateDrawables extends GraphicsActivity {
         setContentView(new SampleView(this));
     }
 
+    /**
+     * 实现了动画对象和canvas的联动，通过在ondraw 中获取当前动画的矩阵，再对canvas进行矩阵变化，最后绘制图像达到动画效果
+     */
     private static class SampleView extends View {
         private AnimateDrawable mDrawable;
 

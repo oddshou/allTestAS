@@ -39,6 +39,16 @@ public class AlphaBitmap extends GraphicsActivity {
         private Bitmap mBitmap3;
         private Shader mShader;
 
+        /**
+         * 说明： 在这个bitmap中绘制的颜色都是无效的
+         *
+         * 绘制三种方式的bitmap，第一种直接将bitmap对象绘制出来
+         * 第二种，获取bitmap的extractAlpha，绘制一个和所去bitmap形状一样的图片
+         * 第三种，创建bitmap进行绘制，并通过xfermode 和图形的alpha值来绘制文字，最后通过设置画笔 shader 绘制出来，文字颜色是图片背景色
+         *
+         *
+         * @param bm
+         */
         private static void drawIntoBitmap(Bitmap bm) {
             float x = bm.getWidth();
             float y = bm.getHeight();
@@ -46,16 +56,16 @@ public class AlphaBitmap extends GraphicsActivity {
             Paint p = new Paint();
             p.setAntiAlias(true);
 
-//            p.setAlpha(0x80);
+            p.setAlpha(0x80);
+            p.setColor(Color.GREEN);
             c.drawCircle(x/2, y/2, x/2, p);
 
-//            p.setAlpha(0x30);
-//            p.setColor(0xDC143C);
+            p.setAlpha(0x30);
             p.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC));
             p.setTextSize(60);
             p.setTextAlign(Paint.Align.CENTER);
             Paint.FontMetrics fm = p.getFontMetrics();
-            c.drawText("Alpha", x/2, (y-fm.ascent)/2, p);
+            c.drawText("AlphaAlphaAlphaAlphaAlpha", x/2, (y-fm.ascent)/2, p);
         }
 
         public SampleView(Context context) {
@@ -77,17 +87,17 @@ public class AlphaBitmap extends GraphicsActivity {
         }
 
         @Override protected void onDraw(Canvas canvas) {
-            canvas.drawColor(Color.WHITE);
+            canvas.drawColor(Color.GRAY);
 
             Paint p = new Paint();
             p.setAntiAlias(true);
             float y = 10;
 
-            p.setColor(Color.RED);
             canvas.drawBitmap(mBitmap, 10, y, p);
             y += mBitmap.getHeight() + 10;
             canvas.drawBitmap(mBitmap2, 10, y, p);
             y += mBitmap2.getHeight() + 10;
+//            p.setColor(Color.RED);
             p.setShader(mShader);
 //            canvas.drawCircle(110, y + 100,100, p);
 //            p.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC));

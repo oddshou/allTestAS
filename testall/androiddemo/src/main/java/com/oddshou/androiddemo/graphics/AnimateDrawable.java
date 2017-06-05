@@ -59,6 +59,7 @@ public class AnimateDrawable extends ProxyDrawable {
             int sc = canvas.save();
             Animation anim = mAnimation;
             if (anim != null) {
+                //获取当前动画的矩阵
                 anim.getTransformation(
                                     AnimationUtils.currentAnimationTimeMillis(),
                                     mTransformation);
