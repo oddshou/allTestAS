@@ -62,7 +62,7 @@ public class BitmapDecode extends GraphicsActivity {
         }
 
         /**
-         * decode 一个bitmap并进行缩放
+         * decode 一个bitmap并进行缩放，decode gif 图片
          * @param context
          */
         public SampleView(Context context) {

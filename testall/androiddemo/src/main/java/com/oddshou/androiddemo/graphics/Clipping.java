@@ -29,6 +29,9 @@ public class Clipping extends GraphicsActivity {
         setContentView(new SampleView(this));
     }
 
+    /**
+     * 不同 Region.Op 参数效果
+     */
     private static class SampleView extends View {
         private Paint mPaint;
         private Path mPath;
@@ -98,7 +101,7 @@ public class Clipping extends GraphicsActivity {
             canvas.save();
             canvas.translate(10, 310);
             canvas.clipRect(0, 0, 60, 60);
-            canvas.clipRect(40, 40, 100, 100, Region.Op.XOR);//并集除掉共同区域
+            canvas.clipRect(40, 40, 100, 100, Region.Op.XOR);//异或，不同为真相同为假
             drawScene(canvas);
             canvas.drawText("XOR", 100, 30, mPaint);
             canvas.restore();

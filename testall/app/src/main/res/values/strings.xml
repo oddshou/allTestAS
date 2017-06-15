@@ -27,6 +27,7 @@
     <string name="title_activity_nouifragment">Activity/NoUIFragmentActivity</string>
     <string name="title_activity_screen">Activity/ScreenActivity</string>
     <string name="title_activity_xfermodes">graaphics/xfermodes</string>
+    <string name="title_animation_radialgradientview">animation/RadialGradientView</string>
 
     <string name="drawable__main">drawableMain</string>
 

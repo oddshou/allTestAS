@@ -222,6 +222,14 @@
                 <category android:name="com.oddshou.testall.category.example" />
             </intent-filter>
         </activity>
+        <activity android:name=".animation.RadialGradientView"
+            android:label="@string/title_animation_radialgradientview">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="com.oddshou.testall.category.example" />
+            </intent-filter>
+        </activity>
 
 
 
