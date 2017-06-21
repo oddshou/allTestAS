@@ -28,6 +28,8 @@
     <string name="title_activity_screen">Activity/ScreenActivity</string>
     <string name="title_activity_xfermodes">graaphics/xfermodes</string>
     <string name="title_animation_radialgradientview">animation/RadialGradientView</string>
+    <string name="title_animation_gridlayoutanimation">animation/GridLayoutAnimation</string>
+    <string name="title_all_test">AllTest</string>
 
     <string name="drawable__main">drawableMain</string>
 

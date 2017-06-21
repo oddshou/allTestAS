@@ -19,7 +19,6 @@ import android.view.animation.LinearInterpolator;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-import com.oddshou.testall.Logger;
 import com.oddshou.testall.R;
 
 /**
@@ -96,7 +95,7 @@ public class RadialGradientView extends Activity {
                     0x00dddddd, 0x00FFFFFF, Shader.TileMode.CLAMP);
 //            mGradientPaint.setShader(radialGradient); //shader暂不使用
             mGradientPaint.setColor(Color.GRAY);
-            Logger.i(TAG, "onTouchEvent: " + mTouchx + " mTouchy " + mTouchy, "oddshou");
+//            Logger.i(TAG, "onTouchEvent: " + mTouchx + " mTouchy " + mTouchy, "oddshou");
             startAnimation();
             return super.onTouchEvent(event);
         }

@@ -18,14 +18,13 @@ package com.oddshou.androiddemo.animation;
 
 // Need the following import to get access to the app resources, since this
 // class is in a sub-package.
-import com.oddshou.androiddemo.R;
-
-import android.view.View;
-
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.GridLayout;
+
+import com.oddshou.androiddemo.R;
 
 /**
  * This application demonstrates how to use the animateLayoutChanges tag in XML to automate
@@ -46,6 +45,12 @@ public class LayoutAnimationsByDefault extends Activity {
         Button addButton = (Button) findViewById(R.id.addNewButton);
         addButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+//                if (numButtons > 16){
+//                    gridContainer.removeView(gridContainer.getChildAt(1));
+//                    numButtons--;
+//                    return;
+//                }
+
                 Button newButton = new Button(LayoutAnimationsByDefault.this);
                 newButton.setText(String.valueOf(numButtons++));
                 newButton.setOnClickListener(new View.OnClickListener() {
@@ -54,6 +59,15 @@ public class LayoutAnimationsByDefault extends Activity {
                     }
                 });
                 gridContainer.addView(newButton, Math.min(1, gridContainer.getChildCount()));
+            }
+        });
+
+        Button minButton = (Button) findViewById(R.id.minButton);
+        minButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                gridContainer.removeView(gridContainer.getChildAt(0));
+                numButtons--;
             }
         });
     }
