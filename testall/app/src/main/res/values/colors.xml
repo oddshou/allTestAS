@@ -15,4 +15,6 @@
     <color name="transparent">#00000000</color>
     <color name="color_first_normal">#fcc41b</color>
 
+    <color name="gray_drag_back">#F1F1F1</color>
+
 </resources>

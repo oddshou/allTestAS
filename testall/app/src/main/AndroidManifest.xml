@@ -242,9 +242,27 @@
                 <category android:name="com.oddshou.testall.category.example" />
             </intent-filter>
         </activity>
+        <activity android:name=".animation.DragBack"
+            android:label="@string/title_animation_dragback"
+            >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="com.oddshou.testall.category.example" />
+            </intent-filter>
+        </activity>
+
+
+
+
+
+
+
+
+
+
         <activity android:name=".activity.AllTest"
             android:label="@string/title_all_test"
-            android:screenOrientation="portrait"
             >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -4,7 +4,8 @@
     android:layout_height="match_parent"
     android:id="@+id/container"
     android:background="@android:color/white"
-    android:clipChildren="false">
+    android:clipChildren="false"
+    >
 
 
 </LinearLayout>
