@@ -3,6 +3,7 @@ package com.oddshou.testall.animation;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
+import android.graphics.Point;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -13,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.oddshou.testall.Logger;
 import com.oddshou.testall.R;
 
 /**
@@ -71,6 +73,8 @@ public class DragBack extends Activity {
             super(context);
             mDragger = ViewDragHelper.create(this, 1.0f, new ViewDragHelper.Callback()
             {
+                View captureView;
+                Point capturePoint;
                 @Override
                 public boolean tryCaptureView(View child, int pointerId)
                 {
@@ -80,13 +84,81 @@ public class DragBack extends Activity {
                 @Override
                 public int clampViewPositionHorizontal(View child, int left, int dx)
                 {
+                    //返回child 最终要定的位置
+//                    Logger.i(TAG, "clampViewPositionHorizontal: " + left, "oddshou");
                     return left;
                 }
 
                 @Override
                 public int clampViewPositionVertical(View child, int top, int dy)
                 {
+//                    Logger.i(TAG, "clampViewPositionVertical: " + top, "oddshou");
                     return top;
+                }
+
+                @Override
+                public void onViewReleased(View releasedChild, float xvel, float yvel) {
+
+                    Logger.i(TAG, "onViewReleased: " + xvel + "  " + yvel, "oddshou");
+//                    mDragger.settleCapturedViewAt()
+                    super.onViewReleased(releasedChild, xvel, yvel);
+                }
+
+                @Override
+                public void onViewDragStateChanged(int state) {
+
+                    Logger.i(TAG, "onViewDragStateChanged: " + state, "oddshou");
+                    super.onViewDragStateChanged(state);
+                }
+
+                @Override
+                public void onViewPositionChanged(View changedView, int left, int top, int dx, int dy) {
+                    super.onViewPositionChanged(changedView, left, top, dx, dy);
+                }
+
+                @Override
+                public void onViewCaptured(View capturedChild, int activePointerId) {
+                    Logger.i(TAG, "onViewCaptured: " + activePointerId, "oddshou");
+                    captureView = capturedChild;
+                    capturePoint.x = captureView.getLeft();
+                    capturePoint.y = captureView.getTop();
+                    super.onViewCaptured(capturedChild, activePointerId);
+                }
+
+                @Override
+                public void onEdgeTouched(int edgeFlags, int pointerId) {
+                    Logger.i(TAG, "onEdgeTouched: "+ edgeFlags + "  " + pointerId, "oddshou");
+                    super.onEdgeTouched(edgeFlags, pointerId);
+                }
+
+                @Override
+                public boolean onEdgeLock(int edgeFlags) {
+                    Logger.i(TAG, "onEdgeLock: " +edgeFlags, "oddshou");
+                    return super.onEdgeLock(edgeFlags);
+                }
+
+                @Override
+                public void onEdgeDragStarted(int edgeFlags, int pointerId) {
+                    Logger.i(TAG, "onEdgeDragStarted: " + edgeFlags + " " + pointerId, "oddshou");
+                    super.onEdgeDragStarted(edgeFlags, pointerId);
+                }
+
+                @Override
+                public int getOrderedChildIndex(int index) {
+                    Logger.i(TAG, "getOrderedChildIndex: " + index, "oddshou");
+                    return super.getOrderedChildIndex(index);
+                }
+
+                @Override
+                public int getViewHorizontalDragRange(View child) {
+                    Logger.i(TAG, "getViewHorizontalDragRange: ", "oddshou");
+                    return super.getViewHorizontalDragRange(child);
+                }
+
+                @Override
+                public int getViewVerticalDragRange(View child) {
+                    Logger.i(TAG, "getViewVerticalDragRange: ", "oddshou");
+                    return super.getViewVerticalDragRange(child);
                 }
             });
         }
