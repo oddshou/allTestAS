@@ -30,6 +30,7 @@
     <string name="title_animation_radialgradientview">animation/RadialGradientView</string>
     <string name="title_animation_gridlayoutanimation">animation/GridLayoutAnimation</string>
     <string name="title_animation_dragback">DragBack</string>
+    <string name="title_demo_drag_gridview">demo/TestDragGridView</string>
 
     <string name="title_all_test">AllTest</string>
     <string name="drawable__main">drawableMain</string>

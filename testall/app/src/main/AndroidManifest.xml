@@ -251,6 +251,15 @@
                 <category android:name="com.oddshou.testall.category.example" />
             </intent-filter>
         </activity>
+        <activity android:name=".demo.TestDragGridView"
+            android:label="@string/title_demo_drag_gridview"
+            >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="com.oddshou.testall.category.example" />
+            </intent-filter>
+        </activity>
 
 
 

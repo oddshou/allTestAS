@@ -1,17 +1,14 @@
 package com.oddshou.testall.animation;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import android.animation.LayoutTransition;
 import android.animation.ObjectAnimator;
 import android.animation.PropertyValuesHolder;
 import android.app.Activity;
-import android.content.ClipData;
-import android.graphics.Canvas;
 import android.graphics.Color;
-import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.view.DragEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.LinearInterpolator;
@@ -20,7 +17,6 @@ import android.widget.GridLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.oddshou.testall.Logger;
 import com.oddshou.testall.R;
 
 import java.util.ArrayList;
@@ -29,8 +25,8 @@ import java.util.ArrayList;
  * Created by oddshou on 2017/6/19.
  */
 
-public class GridLayoutAnimation extends Activity implements View.OnLongClickListener,
-        View.OnClickListener, View.OnDragListener {
+public class GridLayoutAnimation extends Activity implements
+        View.OnClickListener{
     private static final String TAG = "GridLayoutAnimation";
     LinearLayout rootLayout;
     static final String[] CHANNELS_CHOOSED = {"要闻", "视频", "广东", "娱乐", "体育",
@@ -46,8 +42,8 @@ public class GridLayoutAnimation extends Activity implements View.OnLongClickLis
             "宠物4", "纪录片4", "文化4", "动漫4", "股票4",
 
     };
-    private GridLayout gridLayoutUnChoosed;
-    private GridLayout gridLayoutChoosed;
+    private DragGridLayout gridLayoutUnChoosed;
+    private DragGridLayout gridLayoutChoosed;
     private ArrayList<BtnData> groupDataChoosed;
     private ArrayList<BtnData> groupDataUnChoosed;
     private LayoutTransition mTransitionerTop;
@@ -83,8 +79,8 @@ public class GridLayoutAnimation extends Activity implements View.OnLongClickLis
         rootLayout.addView(chooseTitle, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT));
         //2.buttons 已选频道
-        gridLayoutChoosed = new GridLayout(this);
-
+        gridLayoutChoosed = new DragGridLayout(this);
+        gridLayoutChoosed.setChangeItemCallback(callback);
         gridLayoutChoosed.setColumnCount(4);
         gridLayoutChoosed.setLayoutTransition(mTransitionerTop);
         groupDataChoosed = new ArrayList<BtnData>();
@@ -100,7 +96,7 @@ public class GridLayoutAnimation extends Activity implements View.OnLongClickLis
                 ViewGroup.LayoutParams.WRAP_CONTENT));
 
         //4.buttons 推荐频道
-        gridLayoutUnChoosed = new GridLayout(this);
+        gridLayoutUnChoosed = new DragGridLayout(this);
         gridLayoutUnChoosed.setColumnCount(4);
         gridLayoutUnChoosed.setLayoutTransition(mTransitionerBottom);
         groupDataUnChoosed = new ArrayList<BtnData>();
@@ -135,9 +131,8 @@ public class GridLayoutAnimation extends Activity implements View.OnLongClickLis
                 }else {
                     View dstView = gridLayoutChoosed.getChildAt(choosedChangeId);
                     dstView.getLocationInWindow(locationDst); //这里获取得到0，0，改用其他方式获取
-                    choosedChange = false;
-                }
 
+                }
 
                 PropertyValuesHolder pvhTransX =
                         PropertyValuesHolder.ofFloat("translationX", locationSrc[0] - locationDst[0], 0f);
@@ -147,12 +142,18 @@ public class GridLayoutAnimation extends Activity implements View.OnLongClickLis
                         this, pvhTransX, pvhTransY).
                         setDuration(transition.getDuration(LayoutTransition.APPEARING));
                 transition.setAnimator(LayoutTransition.APPEARING, animIn);
+                animIn.addListener(new AnimatorListenerAdapter() {
+                    @Override
+                    public void onAnimationEnd(Animator animation) {
+                        choosedChange = false;
+                    }
+                });
             }
         }
 
         @Override
         public void endTransition(LayoutTransition transition, ViewGroup container, View view, int transitionType) {
-
+            container.postInvalidate(); //这主要解决转换过程中的一些异常
         }
 
         private void getLocation(int[] location) {
@@ -200,104 +201,22 @@ public class GridLayoutAnimation extends Activity implements View.OnLongClickLis
     protected void createBtns(String[] titles, ViewGroup rootView, ArrayList<BtnData> groupList) {
         for (int i = 0; i < titles.length; i++) {
             Button btn = new Button(this);
-            btn.setOnLongClickListener(this);
+//            btn.setOnLongClickListener(this);
             btn.setOnClickListener(this);
-            btn.setOnDragListener(this);
-            btn.setWidth(180);
+//            btn.setOnDragListener(this);
+            btn.setWidth(160);
             btn.setText(titles[i]);
+            btn.setBackgroundResource(R.drawable.button_selector);
+            btn.setTextColor(Color.BLACK);
             BtnData btnData = new BtnData(i, titles[i], titles == CHANNELS_CHOOSED);
 
             btn.setTag(btnData);
             groupList.add(btnData);
+            GridLayout.LayoutParams lp = new GridLayout.LayoutParams();
+            lp.setMargins(10, 10, 10, 10);
+            btn.setLayoutParams(lp);
             rootView.addView(btn);
         }
-    }
-
-
-    @Override
-    public boolean onLongClick(View v) {
-//        v.startDragAndDrop()  api level 24,好吧算我输
-        ClipData dragData = ClipData.newPlainText("clipdata", "clipString");
-//        View.DragShadowBuilder dragShadowBuilder = new View.DragShadowBuilder(v);
-        View.DragShadowBuilder dragShadowBuilder = new MyShadow(v);
-
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            v.startDragAndDrop(dragData, dragShadowBuilder, null, 0);
-        }else {
-            v.startDrag(dragData, dragShadowBuilder, null, 0);
-        }
-//        v.setEnabled(false);
-        moveView = v;
-
-
-
-
-        return false;
-    }
-
-    @Override
-    public boolean onDrag(View v, DragEvent event) {
-
-
-        switch (event.getAction()) {
-            case DragEvent.ACTION_DRAG_STARTED:
-                //开始拖动,所有监听控件都会收到
-                return !(v == moveView);
-            case DragEvent.ACTION_DRAG_ENTERED:
-                Logger.i(TAG, "onDrag: " + event.getAction() + " " + ((BtnData)v.getTag()).title , "oddshou");
-                //进入目标区域，执行变换
-                BtnData tag = (BtnData) v.getTag();
-                if (tag.choosed) {
-                    int k = -1; //终点
-                    int j = -1; //起点
-                    for (int i = 0; i < gridLayoutChoosed.getChildCount(); i++) {
-                        View child = gridLayoutChoosed.getChildAt(i);
-                        if (child == v) {
-                            k = i;
-                        }
-                        if (child == moveView) {
-                            j = i;
-                        }
-                        if (k >= 0 && j >= 0) {
-                            break;
-                        }
-                    }
-                    choosedChange = true;
-                    choosedChangeId =  k > j ? k-1 : k;
-                    //如果起点小于终点，计算终点坐标时减1，大于终点不减
-                    gridLayoutChoosed.removeView(moveView);
-                    moveView.setLayoutParams(new GridLayout.LayoutParams());
-                    gridLayoutChoosed.addView(moveView, k);
-                }
-                return false;
-            case DragEvent.ACTION_DRAG_LOCATION:
-                Logger.i(TAG, "onDrag: " + event.getAction(), "oddshou");
-                return true;
-            case DragEvent.ACTION_DRAG_EXITED:
-                //移除目标区域
-                Logger.i(TAG, "onDrag: " + event.getAction() + " " + ((BtnData)v.getTag()).title, "oddshou");
-                return true;
-            case DragEvent.ACTION_DROP:
-                Logger.i(TAG, "onDrag: " + event.getAction() + " " + ((BtnData)v.getTag()).title, "oddshou");
-                //目标区域放下
-                BtnData tag2 = (BtnData) v.getTag();
-                if (tag2.choosed) {
-                    //还原到终点位置
-                }else {
-                    //进入下方第一个位置
-
-                }
-
-                return true;
-            case DragEvent.ACTION_DRAG_ENDED:
-//                if (moveView == v) {
-//                    moveView.setEnabled(true);
-//                }
-                return true;
-        }
-
-        return false;
     }
 
     @Override
@@ -309,7 +228,6 @@ public class GridLayoutAnimation extends Activity implements View.OnLongClickLis
             gridLayoutChoosed.removeView(v);
             //这里如果不添加新的btn 会有问题，原因似乎是原btn有一些坐标属性
             //导致添加到新的父控件计算位置有误
-            v.setLayoutParams(new GridLayout.LayoutParams());
             gridLayoutUnChoosed.addView(v, 0);
 
             tag.choosed = false;
@@ -321,7 +239,6 @@ public class GridLayoutAnimation extends Activity implements View.OnLongClickLis
             }
         } else {
             gridLayoutUnChoosed.removeView(v);
-            v.setLayoutParams(new GridLayout.LayoutParams());
             gridLayoutChoosed.addView(v);
             tag.choosed = true;
             if (!groupDataChoosed.contains(tag)) {
@@ -333,17 +250,6 @@ public class GridLayoutAnimation extends Activity implements View.OnLongClickLis
         }
     }
 
-    @NonNull
-    private Button getButton(BtnData tag) {
-        Button btn = new Button(this);
-
-        btn.setOnLongClickListener(this);
-        btn.setOnClickListener(this);
-        btn.setWidth(180);
-        btn.setText(tag.title);
-        btn.setTag(tag);
-        return btn;
-    }
 
     public class BtnData {
         int id;
@@ -357,23 +263,22 @@ public class GridLayoutAnimation extends Activity implements View.OnLongClickLis
         }
     }
 
-    /**
-     * 要达到完成的效果还需要仔细斟酌shader效果，
-     * 目前我遇到的问题就是始终有透明度，
-     */
-    public class MyShadow extends View.DragShadowBuilder {
-        private View viewSrc;
-
-        public MyShadow(View view) {
-            super(view);
-            this.viewSrc = view;
-        }
+    private DragGridLayout.ChangeItemCallback callback = new DragGridLayout.ChangeItemCallback() {
 
         @Override
-        public void onDrawShadow(Canvas canvas) {
-            canvas.drawColor(Color.RED);
-//            super.onDrawShadow(canvas);
-            viewSrc.draw(canvas);
+        public void changeItem(int indexEnd, View childView) {
+            if (choosedChange)
+                return;
+            int indexStart = gridLayoutChoosed.indexOfChild(childView);
+            choosedChange = true;
+            choosedChangeId =  indexEnd > indexStart ? indexEnd-1 : indexEnd;
+            //如果起点小于终点，计算终点坐标时减1，大于终点不减
+//            View view = gridLayoutChoosed.getChildAt(indexStart);
+            gridLayoutChoosed.removeView(childView);
+            gridLayoutChoosed.addView(childView, indexEnd);
+//            Logger.i(TAG, "changeItem: " + indexStart + " : " + indexEnd, "oddshou");
         }
-    }
+    };
+
+
 }
