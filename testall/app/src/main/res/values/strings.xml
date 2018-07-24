@@ -31,13 +31,18 @@
     <string name="title_animation_gridlayoutanimation">animation/GridLayoutAnimation</string>
     <string name="title_animation_dragback">DragBack</string>
     <string name="title_demo_drag_gridview">demo/TestDragGridView</string>
+    <string name="title_layout_drag_drawerlayoutact">Layout/DrawerLayoutAct</string>
 
     <string name="title_all_test">AllTest</string>
     <string name="drawable__main">drawableMain</string>
 
-    //user string
+    <!--user string-->
     <string name="restart">Restart</string>
     <string name="fragment_retain_instance_msg">Current progress of retained fragment;
     restarts if fragment is re-created.</string>
     <string name="menu_manager">Change</string>
+    <!--drawerlayout-->
+    <string name="drawer_open">drawer_open</string>
+    <string name="drawer_close">drawer_close</string>
+
 </resources>
